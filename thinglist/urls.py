@@ -4,6 +4,7 @@ from thinglist import views
 
 urlpatterns = patterns('',
   url(r'^$', views.index, name='index'),
-  url(r'^(?P<category_name>\d+)/$', views.category, name='categ'),
-  #url(r'^(?P<category>\d+)/(?P<item_id>\d+)/$', views.item),
+  url(r'^(?P<category_name>\w+)/$', views.category, name='category'),
+  url(r'^(\w+)/(?P<item_name>(\w+\-?)+)/$', views.item, name='item'),
+  url(r'^(\w+)/(\w+\-?)+/(?P<note_id>\d+)/$', views.note, name='note'),
 )

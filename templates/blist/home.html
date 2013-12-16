@@ -2,6 +2,7 @@
 <ul>
 {% for cat in category_list %}
   <li>
+    <a href="/thinglist/{{cat.name}}/">
     {% comment %}
     <a href="{% url 'category' cat.name %}">
     {% endcomment %}
