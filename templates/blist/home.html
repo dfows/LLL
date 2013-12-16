@@ -1,0 +1,12 @@
+{{ lol }}
+<ul>
+{% for cat in category_list %}
+  <li>
+    {% comment %}
+    <a href="{% url 'category' cat.name %}">
+    {% endcomment %}
+    {{ cat.name }}
+    </a>
+  </li>
+{% endfor %}
+</ul>
