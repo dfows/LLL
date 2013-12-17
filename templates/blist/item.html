@@ -1,6 +1,8 @@
 <h1>{{ item }}</h1>
+<p>{{ msg }}</p>
 <ul>
 {% for note in note_list %}
   <li><a href="{{ note.id }}">{{ note.date }}</a></li>
 {% endfor %}
 </ul>
+<p><a href="../">back to {{ name }}</a></p>

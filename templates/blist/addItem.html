@@ -1,0 +1,10 @@
+<h1>New Item</h1>
+<p>{{ error }}</p>
+<form action="/addItem/" method="POST">{% csrf_token %}
+<p>
+   <label for="iname">Name: </label>
+   <input type="text" name="iname" id="iname" />
+</p>
+<input type="hidden" name="category" value="shit fuck how do i get this"/>
+<input type="submit" value="Add" />
+</form>

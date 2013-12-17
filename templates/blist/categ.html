@@ -1,6 +1,8 @@
 <h1>{{ name }}</h1>
+<p><a href="add/item/">New Item</a></p>
 <ul>
 {% for item in item_list %}
-  <li><a href="{{ item.name }}/">{{ item.name }}</a></li>
+  <li><a href="{{ item.url_name }}/">{{ item.name }}</a></li>
 {% endfor %}
 </ul>
+<p><a href="../">back to home</a></p>

@@ -10,6 +10,7 @@ class Category(models.Model):
 class Item(models.Model):
   # an item
   name = models.CharField(max_length="100",primary_key=True)
+  url_name = models.CharField(max_length="100")
   category = models.ForeignKey(Category)
   def __unicode__(self):
     return self.name
@@ -21,6 +22,7 @@ class Note(models.Model):
   id = models.AutoField(primary_key=True)
   date = models.DateTimeField(auto_now=True)
   content = models.TextField(blank=True)
+  rating = models.IntegerField(blank=False)
   item = models.ForeignKey(Item)
   def __unicode__(self):
     return self.date.__str__()+" : "+self.item.__str__()
