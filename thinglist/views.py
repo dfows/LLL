@@ -44,21 +44,21 @@ def addCategory(request):
   else:
     return render(request, 'blist/addCateg.html')
 
-def addItem(request):
+def addItem(request, category_name):
   if request.method == 'POST':
     n = request.POST['iname']
     if n == '':
       msg = {'error': 'error.  please enter text in the field'}
       return render(request, 'blist/addItem.html', msg)
     else:
-      cname = request.POST['category']
-      c = Category.objects.get(name=cname)
+      c = Category.objects.get(name=category_name)
       u = urllib2.quote(n)
       i = Item(name=n,url_name=u,category=c)
       i.save()
-      return redirect('category', category_name = cname)
+      return redirect('category', category_name = category_name)
   else:
-    return render(request, 'blist/addItem.html')
+    context = {'category_name':category_name}
+    return render(request, 'blist/addItem.html', context)
 
 def addNote(request):
   item = ndeetz.item
