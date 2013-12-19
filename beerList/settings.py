@@ -56,6 +56,11 @@ WSGI_APPLICATION = 'beerList.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+# Parse db config from $DATABASE_URL
+import dj_database_url
+
+"""
+# this is for local!  i have to add in a way so that this lives / env is swappable
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -66,6 +71,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+"""
+DATABASES['default'] = dj_database_url.config()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -91,10 +98,6 @@ STATICFILES_DIRS = (
 )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-
-# Parse db config from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
 
 # Honor the 'X-forwarded-proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
