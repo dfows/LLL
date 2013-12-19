@@ -15,7 +15,8 @@ def category(request, category_name):
   context = {'name':category_name,'item_list': item_list}
   return render(request, 'blist/categ.html', context)
 
-def item(request, item_name):
+def item(request, category_name, item_name):
+  print 'item!',item_name
   item = Item.objects.get(name=item_name)
   note_list = Note.objects.filter(item=item)
   context = {'name':item.category, 'item': item.name, 'note_list': note_list}
@@ -60,6 +61,20 @@ def addItem(request, category_name):
     context = {'category_name':category_name}
     return render(request, 'blist/addItem.html', context)
 
-def addNote(request):
-  item = ndeetz.item
-  
+def addNote(request, category_name, item_name):
+  print category_name
+  print item_name
+  if request.method == 'POST':
+    r = request.POST['rating']
+    nn = request.POST['content']
+    if r == '':
+      msg = {'error': 'error.  please enter a rating'}
+      return render(request, 'blist/addNote.html', msg)
+    else:
+      i = Item.objects.get(name=item_name);
+      new_note = Note(rating=r,content=nn,item=i)
+      new_note.save()
+      return redirect('item', category_name, item_name)
+  else:
+    context = {'category_name':category_name,'item_name':item_name}
+    return render(request, 'blist/addNote.html', context)  
