@@ -1,0 +1,1 @@
+web: gunicorn beerList.wsgi
