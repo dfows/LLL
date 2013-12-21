@@ -1,6 +1,6 @@
 <h1>New Category</h1>
 <p>{{ error }}</p>
-<form action="/thinglist/add/category/" method="POST">{% csrf_token %}
+<form action="{% url 'addC' %}" method="POST">{% csrf_token %}
 <p>
    <label for="cname">Name: </label>
    <input type="text" name="cname" id="cname" />
