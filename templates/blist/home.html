@@ -1,12 +1,9 @@
 {{ lol }}
-<p><a href="/thinglist/add/category">New Category</a></p>
+<p><a href="{% url 'addC' %}">New Category</a></p>
 <ul>
 {% for cat in category_list %}
   <li>
-    <a href="/thinglist/{{cat.name}}/">
-    {% comment %}
-    <a href="{% url 'category' cat.name %}">
-    {% endcomment %}
+    <a href="{% url 'category' category_name=cat.name %}">
     {{ cat.name }}
     </a>
   </li>
