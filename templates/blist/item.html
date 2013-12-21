@@ -1,9 +1,9 @@
-<h1>{{ item }}</h1>
+<h1>{{ item.name }}</h1>
 <p>{{ msg }}</p>
-<p><a href="add/note/">New Note</a></p>
+<p><a href="{% url 'addN' category_name=name item_name=item.name %}">New Note</a></p>
 <ul>
 {% for note in note_list %}
-  <li><a href="{{ note.id }}">{{ note.date }}</a></li>
+  <li><a href="{% url 'note' category_name=name item_name=item.name note_id=note.id %}">{{ note.date }}</a></li>
 {% endfor %}
 </ul>
-<p><a href="../">back to {{ name }}</a></p>
+<p><a href="{% url 'category' category_name=name %}">back to {{ name }}</a></p>

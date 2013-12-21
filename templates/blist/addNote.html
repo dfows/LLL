@@ -1,6 +1,6 @@
 <h1>New Note</h1>
 <p>{{ error }}</p>
-<form action="/thinglist/{{ category_name }}/{{ item_name }}/add/note/" method="POST">{% csrf_token %}
+<form action="{% url 'addN' category_name=category_name item_name=item_name %}" method="POST">{% csrf_token %}
 <p>
    <label for="rating">Rating: </label>
    <input type="text" name="rating" id="rating" />

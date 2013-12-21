@@ -1,8 +1,8 @@
 <h1>{{ name }}</h1>
-<p><a href="add/item/">New Item</a></p>
+<p><a href="{% url 'addI' category_name=name %}">New Item</a></p>
 <ul>
 {% for item in item_list %}
-  <li><a href="{{ item.url_name }}/">{{ item.name }}</a></li>
+  <li><a href="{% url 'item' category_name=name item_name=item.name %}">{{ item.name }}</a></li>
 {% endfor %}
 </ul>
-<p><a href="../">back to home</a></p>
+<p><a href="{% url 'index' %}">back to home</a></p>
