@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'beerList.wsgi.application'
 # Parse db config from $DATABASE_URL
 import dj_database_url
 
-"""
+
 # this is for local!  i have to add in a way so that this lives / env is swappable
 DATABASES = {
     'default': {
@@ -73,19 +73,21 @@ DATABASES = {
 }
 """
 DATABASES['default'] = dj_database_url.config()
-
+"""
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+DEFAULT_CHARSET = 'utf-8'
 
 
 # Static files (CSS, JavaScript, Images)

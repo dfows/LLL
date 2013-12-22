@@ -10,7 +10,6 @@ class Category(models.Model):
 class Item(models.Model):
   # an item
   name = models.CharField(max_length="100",primary_key=True)
-  url_name = models.CharField(max_length="100")
   category = models.ForeignKey(Category)
   def __unicode__(self):
     return self.name
