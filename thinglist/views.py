@@ -51,7 +51,7 @@ def addItem(request, category_name):
       return render(request, 'blist/addItem.html', msg)
     else:
       c = Category.objects.get(name=category_name)
-      i = Item(name=n,,category=c)
+      i = Item(name=n,category=c)
       i.save()
       return redirect('category', category_name = category_name)
   else:
