@@ -61,6 +61,7 @@ import dj_database_url
 
 
 # this is for local!  i have to add in a way so that this lives / env is swappable
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -73,7 +74,7 @@ DATABASES = {
 }
 """
 DATABASES['default'] = dj_database_url.config()
-"""
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
