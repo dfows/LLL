@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'beerList.wsgi.application'
 # Parse db config from $DATABASE_URL
 import dj_database_url
 
-
+DATABASES = {}
 # this is for local!  i have to add in a way so that this lives / env is swappable
 """
 DATABASES = {
